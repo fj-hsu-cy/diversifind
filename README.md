@@ -182,7 +182,7 @@ pip install diversifind
 If you want the latest development version:
 
 ```
-git clone https://github.com/Varltia/diversifind.git
+git clone https://github.com/fj-hsu-cy/diversifind.git
 cd diversifind
 pip install -e .
 ```
