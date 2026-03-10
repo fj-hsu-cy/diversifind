@@ -22,9 +22,9 @@ For example, imagine starting with a universe of 80–150 liquid instruments and
 whether it may be due to available funds or cost restrictions. 
 The number of possible portfolios quickly becomes astronomical:
 
-$$$
+$$
 (100 choose 10) ≈ 1.7 × 10^13
-$$$
+$$
 
 Clearly, while evaluating every possible portfolio directly may be feasible with modern hardware,
 it is time-consuming and brutish.
@@ -60,16 +60,16 @@ Answering that question eventually led to the algorithm explored in this reposit
 
 Let $ r_i(t) $ denote the return series of instrument $i$. From aligned returns we can form a correlation matrix
 
-$$$
+$$
 C \in \mathbb{R}^{M\times M}, \qquad C_{ij} = \mathrm{corr}(r_i, r_j),
-$$$
+$$
 
 where $M$ is the universe size. For any candidate subset $S$ of size $N$, 
 we consider the submatrix $C_S\in\mathbb{R}^{N\times N}$ and score the subset via
 
-$$$
+$$
 \text{score}(S) = \log\det(C_S).
-$$$
+$$
 
 Why determinant?
 
@@ -84,9 +84,9 @@ If two instruments are near duplicates, one eigenvalue of $C_S$ becomes small, s
 
 3. **Eigenvalue view:** since $C_S$ is symmetric positive semidefinite,
 
-$$$
+$$
 \det(C_S) = \prod_{i=1}^{N} \lambda_i, \qquad \log\det(C_S)=\sum_{i=1}^{N}\log \lambda_i,
-$$$
+$$
 
 where $\lambda_i$ are the eigenvalues of $C_S$. When return streams are highly correlated, some $\lambda_i$ become very small, 
 and the determinant collapses. 
@@ -94,15 +94,15 @@ Maximizing $\log\det$ therefore discourages near-linear dependence and favors �
 
 We use **log-determinant** rather than determinant directly because it is numerically stable and preserves ordering:
 
-$$$
+$$
 \arg\max_S \det(C_S) \equiv \arg\max_S \log\det(C_S).
-$$$
+$$
 
 This turns the diversification problem into a clean combinatorial optimization task:
 
-$$$
+$$
 \max_{S\subset \{1,\dots,M\},\ |S|=N} \log\det(C_S).
-$$$
+$$
 
 The remaining question is computational: how can we search this space without evaluating all $\binom{M}{N}$ subsets?
 
@@ -415,9 +415,9 @@ During the research process an additional method was explored: **pruned brute fo
 
 The idea was to eliminate candidate portfolios containing pairs of instruments with correlations above a fixed threshold
 
-$$$
+$$
 |corr(i, j)| > τ
-$$$
+$$
 
 This dramatically reduces the size of the search tree and allows an exhaustive search over the remaining portfolios.
 

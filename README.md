@@ -54,9 +54,9 @@ Suppose you have **$M$ assets** and want to choose **$k$ assets** such that the 
 
 A natural objective is to maximize the determinant of the correlation matrix:
 
-$$$
+$$
 \max_{S \subseteq \{1..M\}, |S|=k} \det(C_S)
-$$$
+$$
 
 where $C_S$ is the correlation matrix of the selected assets.
 
@@ -68,9 +68,9 @@ A larger determinant implies:
 
 However, this becomes a **combinatorial search problem**:
 
-$$$
+$$
 \binom{M}{k}
-$$$
+$$
 
 which grows extremely quickly.
 
