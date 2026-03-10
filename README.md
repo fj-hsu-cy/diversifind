@@ -1,5 +1,9 @@
 # Diversifind
 
+![PyPI version](https://img.shields.io/pypi/v/diversifind)
+![Python](https://img.shields.io/pypi/pyversions/diversifind)
+![License](https://img.shields.io/github/license/fj-hsu-cy/diversifind)
+
 **Diversifind** is a Python toolkit for finding the **most diversified subset of assets** from a large universe.
 
 Given a correlation matrix and a target portfolio size $k$, 
